@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Add Parser for first html page and refactor main class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/Mark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/Mark.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/Parser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +98,14 @@
       <option name="presentableId" value="Default" />
       <updated>1669623617203</updated>
     </task>
+    <task id="LOCAL-00001" summary="Add Parser for first html page and refactor main class">
+      <created>1669653573695</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669653573696</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,5 +122,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add Parser for first html page and refactor main class" />
     <option name="LAST_COMMIT_MESSAGE" value="Add Parser for first html page and refactor main class" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/vdoichev/Parser.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

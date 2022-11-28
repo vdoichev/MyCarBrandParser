@@ -26,9 +26,12 @@ public class Parser {
         for (Element element : listElements) {
             assert element.parent() != null;
             if (element.parent().attr("class").equals("CatalogGroup")) {
+                Element groupMark = element.parent().previousElementSibling();
+                assert groupMark != null;
                 marks.add(new Mark(
                         element.text().trim(),
-                        url + element.attr("href").trim()));
+                        url + element.attr("href").trim(),
+                        groupMark.text()));
             }
         }
         return marks;

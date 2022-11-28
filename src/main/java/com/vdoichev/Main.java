@@ -9,6 +9,8 @@ public class Main {
     public static void main(String[] args) {
         marks = Parser.parseMainPage(MAIN_URL);
 
+
+
         assert marks != null;
         for (Mark mark : marks) {
             System.out.println(mark);
