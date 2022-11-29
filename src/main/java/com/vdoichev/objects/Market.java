@@ -1,27 +1,16 @@
 package com.vdoichev.objects;
 
 public class Market {
-    private final String name;
-    private final String href;
+    protected final String name;
 
-    public Market(String name, String href) {
+    protected final String code;
+
+    public Market(String name, String code) {
         this.name = name;
-        this.href = href;
+        this.code = code;
     }
 
     public String getName() {
         return name;
-    }
-
-    public String getHref() {
-        return href;
-    }
-
-    @Override
-    public String toString() {
-        return "Market{" +
-                "name='" + name + '\'' +
-                ", href='" + href + '\'' +
-                '}';
     }
 }
