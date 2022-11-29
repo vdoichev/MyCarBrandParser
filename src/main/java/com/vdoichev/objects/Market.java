@@ -1,14 +1,12 @@
-package com.vdoichev;
+package com.vdoichev.objects;
 
-public class Mark {
+public class Market {
     private final String name;
     private final String href;
-    private final String catalogGroup;
 
-    public Mark(String name, String href, String catalogGroup) {
+    public Market(String name, String href) {
         this.name = name;
         this.href = href;
-        this.catalogGroup = catalogGroup;
     }
 
     public String getName() {
@@ -19,16 +17,11 @@ public class Mark {
         return href;
     }
 
-    public String getCatalogGroup() {
-        return catalogGroup;
-    }
-
     @Override
     public String toString() {
-        return "Mark{" +
+        return "Market{" +
                 "name='" + name + '\'' +
                 ", href='" + href + '\'' +
-                ", catalogGroup='" + catalogGroup + '\'' +
                 '}';
     }
 }
