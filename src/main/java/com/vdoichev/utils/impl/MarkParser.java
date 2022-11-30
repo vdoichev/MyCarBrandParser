@@ -13,8 +13,6 @@ public class MarkParser extends Mark implements IParser {
     private final String href;
     private List<MarketParser> markets;
 
-    private List<ModelParser> models;
-
     public MarkParser(String name, String href, String catalogGroup) {
         super(name, catalogGroup);
         this.href = href;
@@ -53,7 +51,7 @@ public class MarkParser extends Mark implements IParser {
                         code,
                         href);
 
-                market.setModels(market.parseByUrl(market.getHref(),filter));
+                market.setModels(market.parseByUrl(market.getHref(), filter));
                 markets.add(market);
             }
         }
@@ -74,11 +72,15 @@ public class MarkParser extends Mark implements IParser {
         this.markets = markets;
     }
 
-    public boolean isNullMarkets(){
-        return this.markets==null;
+    public List<MarketParser> addEmptyMarket(String... filter) {
+        List<MarketParser> markets = new ArrayList<>();
+        MarketParser emptyMarket = new MarketParser("", "", this.getHref());
+        emptyMarket.setModels(emptyMarket.parseByUrl(emptyMarket.getHref(), filter));
+        markets.add(emptyMarket);
+        return markets;
     }
 
-    public void setModels(List<ModelParser> models) {
-        this.models = models;
+    public boolean isNullMarkets() {
+        return this.markets == null;
     }
 }

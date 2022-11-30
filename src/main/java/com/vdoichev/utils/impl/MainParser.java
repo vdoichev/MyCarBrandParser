@@ -40,12 +40,13 @@ public class MainParser implements IParser {
                         element.text().trim(),
                         href,
                         groupMark.text());
+
                 mark.setMarkets(mark.parseByUrl(mark.getHref(), filter));
-//                if (mark.isNullMarkets()){
-//                    mark.setModels(mark.parseByUrl(mark.getHref(),filter));
-//                }
+                if (mark.isNullMarkets())
+                    mark.setMarkets(mark.addEmptyMarket(filter));
+
                 marks.add(mark);
-//                System.out.println(mark);
+                System.out.println(mark);
             }
         }
         return marks;

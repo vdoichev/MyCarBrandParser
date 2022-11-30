@@ -13,7 +13,7 @@ public class Main {
         MainParser mainParser = new MainParser();
         marks = mainParser.parseByUrl(MAIN_URL, args);
 
-        marks.forEach(System.out::println);
+//        marks.forEach(System.out::println);
     }
 
 }
