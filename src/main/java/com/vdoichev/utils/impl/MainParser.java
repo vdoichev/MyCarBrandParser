@@ -11,6 +11,17 @@ import java.util.List;
 public class MainParser implements IParser {
 
     @Override
+    public List<MarkParser> parseByUrl(String url, String... filter) {
+        Elements markElements = IParser.getElementsByHref(url, "");
+        if (markElements != null) {
+            return enumElements(markElements, filter);
+        } else {
+            System.out.println("Марка авто за вказаними параметрами не знайдена!");
+        }
+        return null;
+    }
+
+    @Override
     public List<MarkParser> enumElements(Elements listElements, String... filter) {
         List<MarkParser> marks = new ArrayList<>();
         for (Element element : listElements) {
@@ -29,13 +40,12 @@ public class MainParser implements IParser {
                         element.text().trim(),
                         href,
                         groupMark.text());
-
-                Elements marketElements = IParser.getElementsByHref(href, "Выбор рынка");
-                if (marketElements != null) {
-                    mark.setMarkets(mark.enumElements(marketElements, filter));
-                } else System.out.println("Відсутні ринки збуту для марки авто " + element.text());
+                mark.setMarkets(mark.parseByUrl(mark.getHref(), filter));
+//                if (mark.isNullMarkets()){
+//                    mark.setModels(mark.parseByUrl(mark.getHref(),filter));
+//                }
                 marks.add(mark);
-                System.out.println(mark);
+//                System.out.println(mark);
             }
         }
         return marks;

@@ -13,6 +13,8 @@ public class MarkParser extends Mark implements IParser {
     private final String href;
     private List<MarketParser> markets;
 
+    private List<ModelParser> models;
+
     public MarkParser(String name, String href, String catalogGroup) {
         super(name, catalogGroup);
         this.href = href;
@@ -20,6 +22,15 @@ public class MarkParser extends Mark implements IParser {
 
     public String getHref() {
         return href;
+    }
+
+    @Override
+    public List<MarketParser> parseByUrl(String url, String... filter) {
+        Elements marketElements = IParser.getElementsByHref(url, "Выбор рынка");
+        if (marketElements != null) {
+            return this.enumElements(marketElements, filter);
+        } else System.out.println("Відсутні ринки збуту для марки авто " + this.getName());
+        return null;
     }
 
     @Override
@@ -42,9 +53,7 @@ public class MarkParser extends Mark implements IParser {
                         code,
                         href);
 
-//                Elements marketElements = IParser.getElementsByHref(href);
-//                List<Market> market = mark.enumElements(marketElements, filter);
-
+                market.setModels(market.parseByUrl(market.getHref(),filter));
                 markets.add(market);
             }
         }
@@ -63,5 +72,13 @@ public class MarkParser extends Mark implements IParser {
 
     public void setMarkets(List<MarketParser> markets) {
         this.markets = markets;
+    }
+
+    public boolean isNullMarkets(){
+        return this.markets==null;
+    }
+
+    public void setModels(List<ModelParser> models) {
+        this.models = models;
     }
 }

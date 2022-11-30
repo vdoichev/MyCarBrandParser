@@ -2,7 +2,6 @@ package com.vdoichev.objects;
 
 public class Market {
     protected final String name;
-
     protected final String code;
 
     public Market(String name, String code) {
@@ -12,5 +11,9 @@ public class Market {
 
     public String getName() {
         return name;
+    }
+
+    public String getCode() {
+        return code;
     }
 }

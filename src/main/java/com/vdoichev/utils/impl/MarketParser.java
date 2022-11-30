@@ -10,6 +10,8 @@ public class MarketParser extends Market implements IParser {
 
     private final String href;
 
+    private List<ModelParser> models;
+
     public MarketParser(String name, String code, String href) {
         super(name, code);
         this.href = href;
@@ -17,6 +19,11 @@ public class MarketParser extends Market implements IParser {
 
     public String getHref() {
         return href;
+    }
+
+    @Override
+    public List<ModelParser> parseByUrl(String url, String... filter) {
+        return null;
     }
 
     @Override
@@ -31,5 +38,9 @@ public class MarketParser extends Market implements IParser {
                 ", code='" + code + '\'' +
                 ", href='" + href + '\'' +
                 '}';
+    }
+
+    public void setModels(List<ModelParser> models) {
+        this.models = models;
     }
 }

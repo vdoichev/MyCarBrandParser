@@ -16,12 +16,4 @@ public class Mark {
     public String getCatalogGroup() {
         return catalogGroup;
     }
-
-    @Override
-    public String toString() {
-        return "Mark{" +
-                "name='" + name + '\'' +
-                ", catalogGroup='" + catalogGroup + '\'' +
-                '}';
-    }
 }
