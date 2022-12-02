@@ -35,8 +35,8 @@ public class MarkParser extends Mark implements IParser {
     public List<MarketParser> enumElements(Elements listElements, String... filter) {
         List<MarketParser> markets = new ArrayList<>();
         for (Element element : listElements) {
-            assert element.parent() != null;
-            if (element.parent().attr("class").equals("name")) {
+            if (element.parent() != null &&
+                    element.parent().attr("class").equals("name")) {
                 String[] params = prepareParams(element);
                 if (filter.length > 1 && !filter[1].equalsIgnoreCase(params[1])) {
                     continue;

@@ -37,8 +37,8 @@ public class MarketParser extends Market implements IParser {
     public List<ModelParser> enumElements(Elements listElements, String... filter) {
         List<ModelParser> models = new ArrayList<>();
         for (Element element : listElements) {
-            assert element.parent() != null;
-            if (element.parent().attr("class").equals("id")) {
+            if (element.parent() != null &&
+                    element.parent().attr("class").equals("id")) {
                 String[] params = prepareParams(element);
                 if (filter.length > 2 && !filter[2].equalsIgnoreCase(params[1])) {
                     continue;
@@ -53,13 +53,16 @@ public class MarketParser extends Market implements IParser {
 
     /**
      * Підготовка даних для створення об'єкта модель авто
+     *
      * @param element елемент HTML з даними
      * @return масив строк, де 0 - код моделі, 1 - назва моделі, 2 - дата виготовлення, 3 - посилання
      */
     @Override
     public String[] prepareParams(Element element) {
         String[] result = new String[4];
-        if (element.parent().parent().parent() != null) {
+        if (element.parent() != null &&
+                element.parent().parent() != null &&
+                element.parent().parent().parent() != null) {
             result[0] = Objects.requireNonNull(element.parent().parent().parent().
                     previousElementSibling()).children().text();
         }

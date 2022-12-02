@@ -38,8 +38,8 @@ public class ModelParser extends Model implements IParser {
     public List<EquipmentParser> enumElements(Elements listElements, String... filter) {
         List<EquipmentParser> equipments = new ArrayList<>();
         for (Element element : listElements) {
-            assert element.parent() != null;
-            if (element.parent().attr("class").equals("id")) {
+            if (element.parent() != null &&
+                    element.parent().attr("class").equals("id")) {
                 String[] params = prepareParams(element);
                 if (filter.length > 2 && !filter[2].equalsIgnoreCase(params[1])) {
                     continue;

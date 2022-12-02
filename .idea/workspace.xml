@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Add class Complectation">
+    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Rename class Complectation to Equipment and add class EquipmentParser">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Complectation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Equipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/ComplectationParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/EquipmentParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MainParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MainParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MainParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarkParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarkParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarketParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarketParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/ModelParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/ModelParser.java" afterDir="false" />
@@ -195,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670018124226</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Rename class Complectation to Equipment and add class EquipmentParser">
+      <created>1670020578139</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670020578139</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -218,7 +224,8 @@
     <MESSAGE value="fix MainParser for Mark without market" />
     <MESSAGE value="Add method prepareParams to IParser and her implements to all class" />
     <MESSAGE value="Add class Complectation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add class Complectation" />
+    <MESSAGE value="Rename class Complectation to Equipment and add class EquipmentParser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename class Complectation to Equipment and add class EquipmentParser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -227,16 +234,6 @@
           <properties class="java.net.SocketTimeoutException" package="java.net" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarkParser.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarkParser.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

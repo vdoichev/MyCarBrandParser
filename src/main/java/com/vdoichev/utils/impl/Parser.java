@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class MainParser implements IParser {
+public class Parser implements IParser {
 
     @Override
     public List<MarkParser> parseByUrl(String url, String... filter) {
@@ -26,8 +26,8 @@ public class MainParser implements IParser {
     public List<MarkParser> enumElements(Elements listElements, String... filter) {
         List<MarkParser> marks = new ArrayList<>();
         for (Element element : listElements) {
-            assert element.parent() != null;
-            if (element.parent().attr("class").equals("CatalogGroup")) {
+            if (element.parent() != null &&
+                    element.parent().attr("class").equals("CatalogGroup")) {
                 String[] params = prepareParams(element);
                 if (filter.length > 0 && !filter[0].equalsIgnoreCase(params[0])) {
                     continue;
