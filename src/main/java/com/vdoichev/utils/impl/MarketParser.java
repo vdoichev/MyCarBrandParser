@@ -1,34 +1,75 @@
 package com.vdoichev.utils.impl;
 
+import com.vdoichev.Main;
 import com.vdoichev.objects.Market;
 import com.vdoichev.utils.IParser;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MarketParser extends Market implements IParser {
 
-    private final String href;
-
+    private final String marketHref;
     private List<ModelParser> models;
 
-    public MarketParser(String name, String code, String href) {
+    public MarketParser(String name, String code, String marketHref) {
         super(name, code);
-        this.href = href;
+        this.marketHref = marketHref;
     }
 
-    public String getHref() {
-        return href;
+    public String getMarketHref() {
+        return marketHref;
     }
 
     @Override
     public List<ModelParser> parseByUrl(String url, String... filter) {
+        Elements modelElements = IParser.getElementsByHref(url, "Выбор модели");
+        if (modelElements != null) {
+            return this.enumElements(modelElements, filter);
+        } else System.out.println("Відсутні моделі");
         return null;
     }
 
     @Override
-    public List<?> enumElements(Elements listElements, String... filter) {
-        return null;
+    public List<ModelParser> enumElements(Elements listElements, String... filter) {
+        List<ModelParser> models = new ArrayList<>();
+        for (Element element : listElements) {
+            assert element.parent() != null;
+            if (element.parent().attr("class").equals("id")) {
+                String[] params = prepareParams(element);
+                if (filter.length > 2 && !filter[2].equalsIgnoreCase(params[1])) {
+                    continue;
+                }
+                ModelParser model = new ModelParser(params[0], params[1], params[2], params[3]);
+//                model.setModels(model.parseByUrl(model.getHref(), filter));
+                models.add(model);
+            }
+        }
+        return models;
+    }
+
+    @Override
+    public String[] prepareParams(Element element) {
+        String[] result = new String[4];
+        if (element.parent().parent().parent() != null) {
+            result[0] = Objects.requireNonNull(element.parent().parent().parent().
+                    previousElementSibling()).children().text();
+        }
+        result[1] = element.text().trim();
+        for (Element sibling : element.parent().nextElementSiblings()) {
+            if (sibling.attr("class").equals("dateRange")) {
+                result[2] = sibling.text().substring(
+                        0,
+                        sibling.text().indexOf('-')
+                ).trim();
+            }
+        }
+        result[3] = Main.MAIN_URL + element.attr("href").trim();
+
+        return result;
     }
 
     @Override
@@ -36,7 +77,8 @@ public class MarketParser extends Market implements IParser {
         return "MarketParser{" +
                 "name='" + name + '\'' +
                 ", code='" + code + '\'' +
-                ", href='" + href + '\'' +
+                ", href='" + marketHref + '\'' +
+                ", models=" + models +
                 '}';
     }
 

@@ -1,13 +1,11 @@
 package com.vdoichev.objects;
 
-import java.util.Date;
-
 public class Model {
-    private final String name;
-    private final String code;
-    private final Date productionDate;
+    protected final String name;
+    protected final String code;
+    protected final String productionDate;
 
-    public Model(String name, String code, Date productionDate) {
+    public Model(String name, String code, String productionDate) {
         this.name = name;
         this.code = code;
         this.productionDate = productionDate;
@@ -21,7 +19,7 @@ public class Model {
         return code;
     }
 
-    public Date getProductionDate() {
+    public String getProductionDate() {
         return productionDate;
     }
 }

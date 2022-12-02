@@ -10,16 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MarkParser extends Mark implements IParser {
-    private final String href;
+    private final String markHref;
     private List<MarketParser> markets;
 
-    public MarkParser(String name, String href, String catalogGroup) {
+    public MarkParser(String name, String catalogGroup, String markHref) {
         super(name, catalogGroup);
-        this.href = href;
+        this.markHref = markHref;
     }
 
-    public String getHref() {
-        return href;
+    public String getMarkHref() {
+        return markHref;
     }
 
     @Override
@@ -33,25 +33,16 @@ public class MarkParser extends Mark implements IParser {
 
     @Override
     public List<MarketParser> enumElements(Elements listElements, String... filter) {
-
         List<MarketParser> markets = new ArrayList<>();
         for (Element element : listElements) {
             assert element.parent() != null;
             if (element.parent().attr("class").equals("name")) {
-
-                String href = Main.MAIN_URL + element.attr("href").trim();
-                String code = href.substring(href.lastIndexOf("=") + 1);
-
-                if (filter.length > 1 && !filter[1].equalsIgnoreCase(code)) {
+                String[] params = prepareParams(element);
+                if (filter.length > 1 && !filter[1].equalsIgnoreCase(params[1])) {
                     continue;
                 }
-
-                MarketParser market = new MarketParser(
-                        element.text().trim(),
-                        code,
-                        href);
-
-                market.setModels(market.parseByUrl(market.getHref(), filter));
+                MarketParser market = new MarketParser(params[0], params[1], params[2]);
+                market.setModels(market.parseByUrl(market.getMarketHref(), filter));
                 markets.add(market);
             }
         }
@@ -59,11 +50,21 @@ public class MarkParser extends Mark implements IParser {
     }
 
     @Override
+    public String[] prepareParams(Element element) {
+        String[] result = new String[3];
+        result[0] = element.text().trim();
+        String href = Main.MAIN_URL + element.attr("href").trim();
+        result[1] = href.substring(href.lastIndexOf("=") + 1);
+        result[2] = href;
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "MarkParse{" +
                 " name='" + name + '\'' +
                 ", catalogGroup='" + catalogGroup + '\'' +
-                ", href='" + href + '\'' +
+                ", href='" + markHref + '\'' +
                 ", markets=" + markets +
                 '}';
     }
@@ -74,13 +75,17 @@ public class MarkParser extends Mark implements IParser {
 
     public List<MarketParser> addEmptyMarket(String... filter) {
         List<MarketParser> markets = new ArrayList<>();
-        MarketParser emptyMarket = new MarketParser("", "", this.getHref());
-        emptyMarket.setModels(emptyMarket.parseByUrl(emptyMarket.getHref(), filter));
+        MarketParser emptyMarket = new MarketParser("", "", this.getMarkHref());
+        emptyMarket.setModels(emptyMarket.parseByUrl(emptyMarket.getMarketHref(), filter));
         markets.add(emptyMarket);
         return markets;
     }
 
     public boolean isNullMarkets() {
         return this.markets == null;
+    }
+
+    public boolean isEmptyMarkets() {
+        return this.markets.size() == 1 && this.markets.get(0).getCode().isEmpty();
     }
 }

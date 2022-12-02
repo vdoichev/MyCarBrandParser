@@ -7,6 +7,7 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MainParser implements IParser {
 
@@ -27,28 +28,29 @@ public class MainParser implements IParser {
         for (Element element : listElements) {
             assert element.parent() != null;
             if (element.parent().attr("class").equals("CatalogGroup")) {
-                Element groupMark = element.parent().previousElementSibling();
-                assert groupMark != null;
-
-                if (filter.length > 0 && !filter[0].equalsIgnoreCase(element.text().trim())) {
+                String[] params = prepareParams(element);
+                if (filter.length > 0 && !filter[0].equalsIgnoreCase(params[0])) {
                     continue;
                 }
-
-                String href = Main.MAIN_URL + element.attr("href").trim();
-
-                MarkParser mark = new MarkParser(
-                        element.text().trim(),
-                        href,
-                        groupMark.text());
-
-                mark.setMarkets(mark.parseByUrl(mark.getHref(), filter));
+                MarkParser mark = new MarkParser(params[0],params[1],params[2]);
+                mark.setMarkets(mark.parseByUrl(mark.getMarkHref(), filter));
                 if (mark.isNullMarkets())
                     mark.setMarkets(mark.addEmptyMarket(filter));
-
                 marks.add(mark);
                 System.out.println(mark);
             }
         }
         return marks;
+    }
+
+    @Override
+    public String[] prepareParams(Element element) {
+        String[] result = new String[3];
+        result[0] = element.text().trim();
+        if (element.parent() != null) {
+            result[1] = Objects.requireNonNull(element.parent().previousElementSibling()).text();
+        }
+        result[2] = Main.MAIN_URL + element.attr("href").trim();
+        return result;
     }
 }

@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Add classes Model and ModelParser">
+    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Add method prepareParams to IParser and her implements to all class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Complectation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/ComplectationParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/IParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/IParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MainParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MainParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarkParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarkParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarketParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarketParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/ModelParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/ModelParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -62,7 +68,7 @@
       <recent name="com.vdoichev.Parser" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Filter mark and market">
+  <component name="RunManager" selected="Application.filter mark|market|model">
     <configuration name="Filter mark and market" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.vdoichev.Main" />
       <module name="MyCarBrandParser" />
@@ -104,15 +110,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="filter mark|market|model" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.vdoichev.Main" />
+      <module name="MyCarBrandParser" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;TOYOTA&quot; &quot;EU&quot; &quot;671440&quot;" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vdoichev.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.filter mark|market|model" />
       <item itemvalue="Application.filter mark" />
       <item itemvalue="Application.Filter mark and market" />
       <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.filter mark" />
+        <item itemvalue="Application.filter mark|market|model" />
         <item itemvalue="Application.Filter mark and market" />
+        <item itemvalue="Application.filter mark" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -161,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669832122080</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix MainParser for Mark without market">
+      <created>1669838280979</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669838280979</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,7 +210,9 @@
     <MESSAGE value="Add interface and implements/extends classes" />
     <MESSAGE value="Add MarketParser" />
     <MESSAGE value="Add classes Model and ModelParser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add classes Model and ModelParser" />
+    <MESSAGE value="fix MainParser for Mark without market" />
+    <MESSAGE value="Add method prepareParams to IParser and her implements to all class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add method prepareParams to IParser and her implements to all class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -191,9 +222,14 @@
           <option name="timeStamp" value="1" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MainParser.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarkParser.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarkParser.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -33,7 +33,10 @@ public interface IParser {
         return check;
     }
 
-    List<?> parseByUrl(String url, String ... filter);
+    List<?> parseByUrl(String url, String... filter);
+
     List<?> enumElements(Elements listElements, String... filter);
+
+    String[] prepareParams(Element element);
 
 }
