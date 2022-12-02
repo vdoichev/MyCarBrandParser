@@ -44,13 +44,18 @@ public class MarketParser extends Market implements IParser {
                     continue;
                 }
                 ModelParser model = new ModelParser(params[0], params[1], params[2], params[3]);
-//                model.setModels(model.parseByUrl(model.getHref(), filter));
+                model.setEquipments(model.parseByUrl(model.getModelHref(), filter));
                 models.add(model);
             }
         }
         return models;
     }
 
+    /**
+     * Підготовка даних для створення об'єкта модель авто
+     * @param element елемент HTML з даними
+     * @return масив строк, де 0 - код моделі, 1 - назва моделі, 2 - дата виготовлення, 3 - посилання
+     */
     @Override
     public String[] prepareParams(Element element) {
         String[] result = new String[4];

@@ -1,18 +1,18 @@
 package com.vdoichev.utils.impl;
 
-import com.vdoichev.objects.Complectation;
+import com.vdoichev.objects.Equipment;
 import com.vdoichev.utils.IParser;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.List;
 
-public class ComplectationParser extends Complectation implements IParser {
-    private String complectationHref;
+public class EquipmentParser extends Equipment implements IParser {
+    private String equipmentHref;
 
-    public ComplectationParser(String code, String dateRange, String complectationHref) {
+    public EquipmentParser(String code, String dateRange, String equipmentHref) {
         super(code, dateRange);
-        this.complectationHref = complectationHref;
+        this.equipmentHref = equipmentHref;
     }
 
     @Override

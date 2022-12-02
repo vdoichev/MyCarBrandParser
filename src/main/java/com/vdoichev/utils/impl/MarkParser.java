@@ -49,6 +49,11 @@ public class MarkParser extends Mark implements IParser {
         return markets;
     }
 
+    /**
+     * Підготовка даних для створення об'єкта країна збуту
+     * @param element елемент HTML з даними
+     * @return масив строк, де 0 - назва країни збуту, 1 - код країни, 2 - посилання
+     */
     @Override
     public String[] prepareParams(Element element) {
         String[] result = new String[3];

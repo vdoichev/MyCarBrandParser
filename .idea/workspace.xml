@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Add method prepareParams to IParser and her implements to all class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Complectation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/ComplectationParser.java" afterDir="false" />
+    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Add class Complectation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/IParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/IParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Complectation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Equipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/ComplectationParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/EquipmentParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MainParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MainParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarkParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarkParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarketParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarketParser.java" afterDir="false" />
@@ -190,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669838280979</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add class Complectation">
+      <created>1670018124226</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670018124226</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,7 +217,8 @@
     <MESSAGE value="Add classes Model and ModelParser" />
     <MESSAGE value="fix MainParser for Mark without market" />
     <MESSAGE value="Add method prepareParams to IParser and her implements to all class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add method prepareParams to IParser and her implements to all class" />
+    <MESSAGE value="Add class Complectation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add class Complectation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

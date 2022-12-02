@@ -43,6 +43,11 @@ public class MainParser implements IParser {
         return marks;
     }
 
+    /**
+     * Підготовка даних для створення об'єкта марка авто
+     * @param element елемент HTML з даними
+     * @return масив строк, де 0 - назва марки авто, 1 - група каталогу, 2 - посилання
+     */
     @Override
     public String[] prepareParams(Element element) {
         String[] result = new String[3];

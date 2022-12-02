@@ -1,6 +1,6 @@
 package com.vdoichev.objects;
 
-public class Complectation {
+public class Equipment {
     protected final String code;
     protected final String dateRange;
     protected String engine1;
@@ -15,7 +15,7 @@ public class Complectation {
     protected String destination;
     protected String fuelInduction;
 
-    public Complectation(String code, String dateRange) {
+    public Equipment(String code, String dateRange) {
         this.code = code;
         this.dateRange = dateRange;
     }
