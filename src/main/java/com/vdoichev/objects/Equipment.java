@@ -2,7 +2,7 @@ package com.vdoichev.objects;
 
 public class Equipment {
     protected final String code;
-    protected final String dateRange;
+    protected String dateRange;
     protected String engine1;
     protected String body;
     protected String grade;
@@ -15,8 +15,11 @@ public class Equipment {
     protected String destination;
     protected String fuelInduction;
 
-    public Equipment(String code, String dateRange) {
+    public Equipment(String code) {
         this.code = code;
+    }
+
+    public void setDateRange(String dateRange) {
         this.dateRange = dateRange;
     }
 

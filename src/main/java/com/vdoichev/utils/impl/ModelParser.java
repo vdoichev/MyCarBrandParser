@@ -1,5 +1,6 @@
 package com.vdoichev.utils.impl;
 
+import com.vdoichev.Main;
 import com.vdoichev.objects.Model;
 import com.vdoichev.utils.IParser;
 import org.jsoup.nodes.Element;
@@ -39,12 +40,12 @@ public class ModelParser extends Model implements IParser {
         List<EquipmentParser> equipments = new ArrayList<>();
         for (Element element : listElements) {
             if (element.parent() != null &&
-                    element.parent().attr("class").equals("id")) {
+                    element.parent().attr("class").equals("modelCode")) {
                 String[] params = prepareParams(element);
-                if (filter.length > 2 && !filter[2].equalsIgnoreCase(params[1])) {
+                if (filter.length > 3 && !filter[3].equalsIgnoreCase(params[0])) {
                     continue;
                 }
-                EquipmentParser equipment = new EquipmentParser(params[0], params[1], params[2]);
+                EquipmentParser equipment = new EquipmentParser(params[0], params[1]);
 //                equipment.setModels(equipment.parseByUrl(equipment.getHref(), filter));
                 equipments.add(equipment);
             }
@@ -54,16 +55,20 @@ public class ModelParser extends Model implements IParser {
 
     @Override
     public String[] prepareParams(Element element) {
-        return new String[0];
+        String[] result = new String[2];
+        result[0] = element.text().trim();
+        result[1] = Main.MAIN_URL + element.attr("href").trim();
+        return result;
     }
 
     @Override
     public String toString() {
         return "ModelParser{" +
-                "name='" + name + '\'' +
+                ", name='" + name + '\'' +
                 ", code='" + code + '\'' +
                 ", productionDate='" + productionDate + '\'' +
-                ", href='" + modelHref + '\'' +
+                ", modelHref='" + modelHref + '\'' +
+                ", equipments=" + equipments +
                 '}';
     }
 

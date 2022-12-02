@@ -37,7 +37,7 @@ public class Parser implements IParser {
                 if (mark.isNullMarkets())
                     mark.setMarkets(mark.addEmptyMarket(filter));
                 marks.add(mark);
-                System.out.println(mark);
+
             }
         }
         return marks;
