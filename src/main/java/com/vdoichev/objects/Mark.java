@@ -1,6 +1,7 @@
 package com.vdoichev.objects;
 
 public class Mark {
+    private int id;
     protected final String name;
     protected final String catalogGroup;
 
@@ -15,5 +16,13 @@ public class Mark {
 
     public String getCatalogGroup() {
         return catalogGroup;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

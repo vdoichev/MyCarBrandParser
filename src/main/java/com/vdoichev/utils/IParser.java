@@ -16,7 +16,7 @@ public interface IParser {
                 if (checkPage(document, pageTitle)) return document.select("a");
             } else return document.select("a");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Помилка з'єднання з вказаним ресурсом (відсутній інтернет або адреса не доступна)!");;
         }
         return null;
     }

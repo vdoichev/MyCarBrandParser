@@ -1,5 +1,6 @@
 package com.vdoichev;
 
+import com.vdoichev.db.MyDbForAbp;
 import com.vdoichev.utils.impl.Parser;
 import com.vdoichev.utils.impl.MarkParser;
 
@@ -12,8 +13,14 @@ public class Main {
     public static void main(String[] args) {
         Parser mainParser = new Parser();
         marks = mainParser.parseByUrl(MAIN_URL, args);
-
-        marks.forEach(System.out::println);
+        if (marks !=null) {
+            marks.forEach(System.out::println);
+            addObjectToDb(marks);
+        }
     }
 
+    private static void addObjectToDb(List<MarkParser> marks){
+        MyDbForAbp myDbForAbp = new MyDbForAbp();
+        marks.forEach(myDbForAbp::addMark);
+    }
 }
