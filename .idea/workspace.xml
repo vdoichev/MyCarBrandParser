@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Add MySqlConnection and Mark to DB">
+    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Add saveObjectToDB">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/db/MyDbForAbp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/db/MyDbForAbp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Market.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Market.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarkParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarkParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarketParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/MarketParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670171752174</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add saveObjectToDB">
+      <created>1670234631155</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670234631155</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -264,7 +271,8 @@
     <MESSAGE value="Refactoring and documentation" />
     <MESSAGE value="Add object EquipmentParser" />
     <MESSAGE value="Add MySqlConnection and Mark to DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add MySqlConnection and Mark to DB" />
+    <MESSAGE value="Add saveObjectToDB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add saveObjectToDB" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -93,8 +93,4 @@ public class MarkParser extends Mark implements IParser {
     public boolean isNullMarkets() {
         return this.markets == null;
     }
-
-    public boolean isEmptyMarkets() {
-        return this.markets.size() == 1 && this.markets.get(0).getCode().isEmpty();
-    }
 }

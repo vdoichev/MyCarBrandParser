@@ -93,4 +93,8 @@ public class MarketParser extends Market implements IParser {
     public void setModels(List<ModelParser> models) {
         this.models = models;
     }
+
+    public boolean isEmpty() {
+        return this.getCode().isEmpty();
+    }
 }
