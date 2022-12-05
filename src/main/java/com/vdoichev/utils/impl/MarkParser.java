@@ -22,6 +22,10 @@ public class MarkParser extends Mark implements IParser {
         return markHref;
     }
 
+    public List<MarketParser> getMarkets() {
+        return markets;
+    }
+
     @Override
     public List<MarketParser> parseByUrl(String url, String... filter) {
         Elements marketElements = IParser.getElementsByHref(url, "Выбор рынка");

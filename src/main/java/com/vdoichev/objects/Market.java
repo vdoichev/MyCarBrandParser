@@ -1,6 +1,7 @@
 package com.vdoichev.objects;
 
 public class Market {
+    private int id;
     protected final String name;
     protected final String code;
 
@@ -15,5 +16,13 @@ public class Market {
 
     public String getCode() {
         return code;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
