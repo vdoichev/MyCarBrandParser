@@ -4,6 +4,7 @@ import com.vdoichev.db.MyDbForAbp;
 import com.vdoichev.utils.impl.Parser;
 import com.vdoichev.utils.impl.MarkParser;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,6 +13,7 @@ public class Main {
     public static List<MarkParser> marks;
 
     public static void main(String[] args) {
+        if (args.length>0) System.out.println("Умови парсингу - "+ Arrays.toString(args));
         Parser mainParser = new Parser();
         System.out.println("----------------Початок парсингу сторінок---------------");
         marks = mainParser.parseByUrl(MAIN_URL, args);
