@@ -2,6 +2,7 @@ package com.vdoichev.db;
 
 import com.vdoichev.utils.impl.MarkParser;
 import com.vdoichev.utils.impl.MarketParser;
+import com.vdoichev.utils.impl.ModelParser;
 
 import java.sql.*;
 import java.util.List;
@@ -12,7 +13,7 @@ public class MyDbForAbp {
         for (MarkParser mark : marks) {
             mark.setId(getIdByMark(mark));
             if (mark.getId() > 0 || addMark(mark)) {
-                saveMarketsToDB(mark.getMarkets());
+                saveMarketsToDB(mark.getMarkets(), mark.getId());
             } else {
                 System.out.println("Сталася помилка при збереженні марки авто " +
                         mark.getName() + "!");
@@ -20,19 +21,82 @@ public class MyDbForAbp {
         }
     }
 
-    public static void saveMarketsToDB(List<MarketParser> markets) {
+    public static void saveMarketsToDB(List<MarketParser> markets, int mark_id) {
         for (MarketParser market : markets) {
             if (!market.isEmpty()) {
                 market.setId(getIdByMarket(market));
                 if (market.getId() > 0 || addMarket(market)) {
-//                    System.out.println("Додавання ринку збуту " +
-//                            market.getName() + "!");
+                    saveModelsToDB(market.getModels(), mark_id, market.getId());
                 } else {
                     System.out.println("Сталася помилка при збереженні ринку збуту " +
                             market.getName() + " або він вже існує!");
                 }
             }
         }
+    }
+
+    public static void saveModelsToDB(List<ModelParser> models, Integer mark_id, Integer market_id) {
+        for (ModelParser model : models) {
+            model.setId(getIdByModel(model, mark_id, market_id));
+            if (model.getId() > 0 || addModel(model, mark_id, market_id)) {
+                //saveMarketsToDB(model.get());
+            } else {
+                System.out.println("Сталася помилка при збереженні моделі авто " +
+                        model.getName() + "!");
+            }
+        }
+    }
+
+    private static boolean addModel(ModelParser modelParser, Integer mark_id, Integer market_id) {
+        try (Connection con = MySqlConnection.getConnection()) {
+
+            String sql = "INSERT INTO model(name, code, date_from, mark_id, market_id) " +
+                    "values (?, ?, ?, ?, ?)";
+            PreparedStatement statement = Objects.requireNonNull(con).prepareStatement(sql,
+                    Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, modelParser.getName());
+            statement.setString(2, modelParser.getCode());
+            statement.setString(3, modelParser.getProductionDateFormat().toString());
+            statement.setString(4, mark_id.toString());
+            statement.setString(5, market_id.toString());
+            int resultUpdate = statement.executeUpdate();
+            if (resultUpdate > 0) {
+                System.out.println("Успішне додавання моделі авто " +
+                        modelParser.getName() + "!");
+                ResultSet rs = statement.getGeneratedKeys();
+                if (rs.next()) {
+                    int id = rs.getInt(1);
+                    modelParser.setId(id);
+                    return true;
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println("Виникла помилка при додаванні в БД моделі авто " +
+                    modelParser.getName());
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    private static int getIdByModel(ModelParser modelParser, Integer mark_id, Integer market_id) {
+        try (Connection con = MySqlConnection.getConnection()) {
+            System.out.print("Перевірка наявності в БД моделі авто " +
+                    modelParser.getName());
+            String sql = "select id from model where code = ? and mark_id = ? and market_id = ?";
+            PreparedStatement statement = Objects.requireNonNull(con).prepareStatement(sql);
+            statement.setString(1, modelParser.getCode());
+            statement.setString(2, mark_id.toString());
+            statement.setString(3, market_id.toString());
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                System.out.println(" - знайдено запис id = " + rs.getInt("id"));
+                return rs.getInt("id");
+            } else System.out.println(" - не знайдено");
+        } catch (SQLException ex) {
+            System.out.println("Виникла помилка при перевірці наявності в БД моделі авто " +
+                    modelParser.getName());
+        }
+        return 0;
     }
 
     private static int getIdByMarket(MarketParser marketParser) {

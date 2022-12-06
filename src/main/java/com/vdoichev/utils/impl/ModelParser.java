@@ -75,4 +75,6 @@ public class ModelParser extends Model implements IParser {
     public void setEquipments(List<EquipmentParser> equipments) {
         this.equipments = equipments;
     }
+
+
 }

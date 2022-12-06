@@ -24,6 +24,10 @@ public class MarketParser extends Market implements IParser {
         return marketHref;
     }
 
+    public List<ModelParser> getModels() {
+        return models;
+    }
+
     @Override
     public List<ModelParser> parseByUrl(String url, String... filter) {
         Elements modelElements = IParser.getElementsByHref(url, "Выбор модели");
