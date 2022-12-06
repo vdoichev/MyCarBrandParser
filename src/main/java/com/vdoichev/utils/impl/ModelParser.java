@@ -46,11 +46,27 @@ public class ModelParser extends Model implements IParser {
                     continue;
                 }
                 EquipmentParser equipment = new EquipmentParser(params[0], params[1]);
-//                equipment.setModels(equipment.parseByUrl(equipment.getHref(), filter));
+                setDetailParamsForEquipment(element, equipment);
                 equipments.add(equipment);
             }
         }
         return equipments;
+    }
+
+    private static void setDetailParamsForEquipment(Element element, EquipmentParser equipment) {
+        if (element.parent() != null && element.parent().parent() != null &&
+                element.parent().parent().parent() != null) {
+            Element parentTr = element.parent().parent().parent();
+            if (parentTr.tag().getName().equals("tr")) {
+                Elements children = parentTr.children();
+                for (Element child : children) {
+                    if (!child.children().isEmpty()) {
+                        equipment.setFieldByCssClass(child.child(0).className(),
+                                child.child(0).text().trim());
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -75,6 +91,4 @@ public class ModelParser extends Model implements IParser {
     public void setEquipments(List<EquipmentParser> equipments) {
         this.equipments = equipments;
     }
-
-
 }

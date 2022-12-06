@@ -1,5 +1,6 @@
 package com.vdoichev.db;
 
+import com.vdoichev.utils.impl.EquipmentParser;
 import com.vdoichev.utils.impl.MarkParser;
 import com.vdoichev.utils.impl.MarketParser;
 import com.vdoichev.utils.impl.ModelParser;
@@ -19,6 +20,12 @@ public class MyDbForAbpDao {
     public static final String SELECT_ID_FROM_MARK = "select id from mark where name = ?";
     public static final String INSERT_INTO_MARK = "INSERT INTO mark(name, catalogGroup) values (?, ?)";
     public static final String INSERT_INTO_MARKET = "INSERT INTO market(code, name) values (?, ?)";
+    public static final String SELECT_ID_FROM_EQUIPMENT =
+            "select id from equipment where code = ? and model_id = ?";
+    public static final String SQL_INSERT_FOR_EQUIPMENT =
+            "INSERT INTO equipment(code, dateRange, engine1, body, grade, atmMtm, gearShiftType, cab" +
+                    ", transmissionModel, loadingCapacity, rearTire, destination, fuelInduction, model_id) " +
+                    "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     public static int getIdByMark(MarkParser markParser) {
         try (Connection con = MySqlConnection.getConnection()) {
@@ -154,6 +161,64 @@ public class MyDbForAbpDao {
         } catch (SQLException ex) {
             System.out.println("Виникла помилка при додаванні в БД моделі авто " +
                     modelParser.getName());
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    public static int getIdByEquipment(EquipmentParser equipmentParser, Integer model_id) {
+        try (Connection con = MySqlConnection.getConnection()) {
+            System.out.print("Перевірка наявності в БД комплектації авто " +
+                    equipmentParser.getCode());
+            PreparedStatement statement =
+                    Objects.requireNonNull(con).prepareStatement(SELECT_ID_FROM_EQUIPMENT);
+            statement.setString(1, equipmentParser.getCode());
+            statement.setString(2, model_id.toString());
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                System.out.println(" - знайдено запис id = " + rs.getInt("id"));
+                return rs.getInt("id");
+            } else System.out.println(" - не знайдено");
+        } catch (SQLException ex) {
+            System.out.println("Виникла помилка при перевірці наявності в БД комплектації авто " +
+                    equipmentParser.getCode());
+        }
+        return 0;
+    }
+
+    public static boolean addEquipmeent(EquipmentParser equipmentParser, Integer model_id) {
+        try (Connection con = MySqlConnection.getConnection()) {
+            PreparedStatement statement =
+                    Objects.requireNonNull(con).prepareStatement(SQL_INSERT_FOR_EQUIPMENT,
+                            Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, equipmentParser.getCode());
+            statement.setString(2, equipmentParser.getDateRange());
+            statement.setString(3, equipmentParser.getEngine1());
+            statement.setString(4, equipmentParser.getBody());
+            statement.setString(5, equipmentParser.getGrade());
+            statement.setString(6, equipmentParser.getAtmMtm());
+            statement.setString(7, equipmentParser.getGearShiftType());
+            statement.setString(8, equipmentParser.getCab());
+            statement.setString(9, equipmentParser.getTransmissionModel());
+            statement.setString(10, equipmentParser.getLoadingCapacity());
+            statement.setString(11, equipmentParser.getRearTire());
+            statement.setString(12, equipmentParser.getDestination());
+            statement.setString(13, equipmentParser.getFuelInduction());
+            statement.setString(14, model_id.toString());
+            int resultUpdate = statement.executeUpdate();
+            if (resultUpdate > 0) {
+                System.out.println("Успішне додавання комплектації авто " +
+                        equipmentParser.getCode() + "!");
+                ResultSet rs = statement.getGeneratedKeys();
+                if (rs.next()) {
+                    int id = rs.getInt(1);
+                    equipmentParser.setId(id);
+                    return true;
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println("Виникла помилка при додаванні в БД комплектації авто " +
+                    equipmentParser.getCode());
             ex.printStackTrace();
         }
         return false;

@@ -1,6 +1,7 @@
 package com.vdoichev;
 
 import com.vdoichev.db.MyDbForAbpDao;
+import com.vdoichev.utils.impl.EquipmentParser;
 import com.vdoichev.utils.impl.MarkParser;
 import com.vdoichev.utils.impl.MarketParser;
 import com.vdoichev.utils.impl.ModelParser;
@@ -38,10 +39,22 @@ public class MyDbForAbp {
         for (ModelParser model : models) {
             model.setId(MyDbForAbpDao.getIdByModel(model, mark_id, market_id));
             if (model.getId() > 0 || MyDbForAbpDao.addModel(model, mark_id, market_id)) {
-                //saveMarketsToDB(model.get());
+                saveEquipmentsToDB(model.getEquipments(),model.getId());
             } else {
                 System.out.println("Сталася помилка при збереженні моделі авто " +
                         model.getName() + "!");
+            }
+        }
+    }
+
+    public static void saveEquipmentsToDB(List<EquipmentParser> equipments, Integer model_id) {
+        for (EquipmentParser equipment : equipments) {
+            equipment.setId(MyDbForAbpDao.getIdByEquipment(equipment,model_id));
+            if (equipment.getId() > 0 || MyDbForAbpDao.addEquipmeent(equipment, model_id)) {
+                System.out.println("Тут можна продовжити парсинг подальших сторінок!!!");
+            } else {
+                System.out.println("Сталася помилка при збереженні комплектації авто " +
+                        equipment.getCode() + "!");
             }
         }
     }

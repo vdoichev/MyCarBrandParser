@@ -15,9 +15,9 @@ public class EquipmentParser extends Equipment implements IParser {
         this.equipmentHref = equipmentHref;
     }
 
-    public String getEquipmentHref() {
-        return equipmentHref;
-    }
+//    public String getEquipmentHref() {
+//        return equipmentHref;
+//    }
 
     public void setFieldByCssClass(String cssClass, String value) {
         switch (cssClass) {
@@ -47,6 +47,15 @@ public class EquipmentParser extends Equipment implements IParser {
                 break;
             case "09":
                 setLoadingCapacity(value);
+                break;
+            case "10":
+                setRearTire(value);
+                break;
+            case "11":
+                setDestination(value);
+                break;
+            case "12":
+                setFuelInduction(value);
                 break;
             default:
                 System.out.println("Не визначений CSS Class "+cssClass+" для запису "+value);

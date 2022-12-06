@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Refactoring class MyDbForAbp">
+    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Add mysql to pom file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/MyDbForAbp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/MyDbForAbp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/db/MyDbForAbpDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/db/MyDbForAbpDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Equipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/ModelParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/ModelParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670327070801</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Add mysql to pom file">
+      <created>1670327393587</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1670327393587</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -301,7 +312,8 @@
     <MESSAGE value="Refactoring and logging saveMarkToDB and saveMarketsToDB" />
     <MESSAGE value="Add method saveModelsToDB" />
     <MESSAGE value="Refactoring class MyDbForAbp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring class MyDbForAbp" />
+    <MESSAGE value="Add mysql to pom file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add mysql to pom file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

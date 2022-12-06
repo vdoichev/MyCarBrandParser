@@ -1,6 +1,7 @@
 package com.vdoichev.objects;
 
 public class Equipment {
+    private int id;
     protected final String code;
     protected String dateRange;
     protected String engine1;
@@ -17,6 +18,18 @@ public class Equipment {
 
     public Equipment(String code) {
         this.code = code;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
     }
 
     public void setDateRange(String dateRange) {
@@ -65,5 +78,53 @@ public class Equipment {
 
     public void setFuelInduction(String fuelInduction) {
         this.fuelInduction = fuelInduction;
+    }
+
+    public String getDateRange() {
+        return dateRange;
+    }
+
+    public String getEngine1() {
+        return engine1;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public String getAtmMtm() {
+        return atmMtm;
+    }
+
+    public String getGearShiftType() {
+        return gearShiftType;
+    }
+
+    public String getCab() {
+        return cab;
+    }
+
+    public String getTransmissionModel() {
+        return transmissionModel;
+    }
+
+    public String getLoadingCapacity() {
+        return loadingCapacity;
+    }
+
+    public String getRearTire() {
+        return rearTire;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getFuelInduction() {
+        return fuelInduction;
     }
 }
