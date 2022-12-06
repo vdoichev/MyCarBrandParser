@@ -1,6 +1,5 @@
 package com.vdoichev;
 
-import com.vdoichev.db.MyDbForAbp;
 import com.vdoichev.utils.impl.Parser;
 import com.vdoichev.utils.impl.MarkParser;
 
