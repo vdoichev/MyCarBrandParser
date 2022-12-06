@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Add method saveModelsToDB">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/db/MyDbForAbpDao.java" afterDir="false" />
+    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Refactoring class MyDbForAbp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/db/MyDbForAbp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/MyDbForAbp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670323227868</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Refactoring class MyDbForAbp">
+      <created>1670327070801</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1670327070801</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -296,7 +300,8 @@
     <MESSAGE value="Add methods saveMarkToDB and saveMarketsToDB" />
     <MESSAGE value="Refactoring and logging saveMarkToDB and saveMarketsToDB" />
     <MESSAGE value="Add method saveModelsToDB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add method saveModelsToDB" />
+    <MESSAGE value="Refactoring class MyDbForAbp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring class MyDbForAbp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
