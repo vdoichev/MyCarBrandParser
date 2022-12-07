@@ -21,6 +21,8 @@ public class EquipmentParser extends Equipment implements IParser {
 
     public void setFieldByCssClass(String cssClass, String value) {
         switch (cssClass) {
+            case "modelCode":
+                break;
             case "dateRange":
                 setDateRange(value);
                 break;

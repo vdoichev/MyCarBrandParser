@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Add db script to project">
+    <list default="true" id="0e4919a6-1ed8-4ee7-8b6f-cc60d90664c4" name="Changes" comment="Add getProductionDateFormat to class Model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/EquipmentParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vdoichev/utils/impl/EquipmentParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670334393071</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Add getProductionDateFormat to class Model">
+      <created>1670356147529</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1670356147529</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -337,7 +345,8 @@
     <MESSAGE value="Add mysql to pom file" />
     <MESSAGE value="Add method saveEquipmentsToDB and setDetailParamsForEquipment" />
     <MESSAGE value="Add db script to project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add db script to project" />
+    <MESSAGE value="Add getProductionDateFormat to class Model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add getProductionDateFormat to class Model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -348,8 +357,8 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/vdoichev/objects/Model.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="2" />
+          <line>34</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -2,6 +2,8 @@ package com.vdoichev.objects;
 
 
 import java.time.LocalDate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Model {
     private int id;
@@ -28,7 +30,9 @@ public class Model {
     }
 
     public LocalDate getProductionDateFormat() {
-        if (getProductionDate().length() == 7) {
+        Pattern pattern = Pattern.compile("\\d{2}.\\d{4}");
+        Matcher matcher = pattern.matcher(this.getProductionDate());
+        if (this.getProductionDate().length() == 7 && matcher.find()) {
             String date = this.getProductionDate();
             String year = date.substring(date.lastIndexOf('.') + 1);
             String month = date.substring(0, date.indexOf('.'));
